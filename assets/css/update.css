@@ -507,6 +507,7 @@ body .app-block-stats:before {
 .contact-form-container {
   background: #fff;
   padding: 20px;
+  margin: 15% auto;
   border-radius: 8px;
   width: 80%;
   max-width: 600px;

@@ -532,6 +532,7 @@ body .app-block-stats:before {
 
 .contact-form-container input[type="text"],
 .contact-form-container input[type="email"],
+.contact-form-container input[type="tel"],
 .contact-form-container textarea {
   width: 100%;
   padding: 10px;

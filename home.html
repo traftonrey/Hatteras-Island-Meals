@@ -5,13 +5,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Our mission is to serve anyone on Hatteras Island who is unable to prepare nutritious
+    meals, has no one to help with meal preparation, requires short term assistance while
+    recovering from an illness or medical condition, or needs long-term meals.
+    Hatteras Island Meals, Inc. is a nonprofit 501(c)(3) organization. Federal Tax ID:
+    20-565381.">
+    <meta name="keywords"
+        content="HIM, Hatteras, Hatteras Island, Hatteras Island Meals, Charity, Donation, Nonprofit, 501(c)(3), 501c3">
+    <meta name="author" content="Hatteras Island Meals">
 
     <title>
 
-        Hatteras Island Meals &middot; Providing nutritious meals across Hatteras Island TEST
+        Hatteras Island Meals &middot; Providing nutritious meals across Hatteras Island
 
     </title>
 
@@ -59,7 +64,7 @@
                     </li>
                     <li>
                         <a href="https://www.facebook.com/HatterasIslandMeals/">
-                            <span class="icon icon-facebook hidden-xs" style="font-size: 20px;"></span>
+                            <span class="icon icon-facebook hidden-xs" style="font-size: 16px;"></span>
                             <span class="visible-xs">Facebook</span>
                         </a>
                     </li>
@@ -194,11 +199,35 @@
                         to send us a message at:
                         <a href="mailto:HatterasIslandMeals@gmail.com"> HatterasIslandMeals@gmail.com.</a>
                     </p>
-                    <a class="btn btn-default btn-lg btn-pill btn-borderless"
-                        href="mailto:HatterasIslandMeals@gmail.com"><span class="icon icon-mail"></span> Send a
-                        message</a>
+                    <a class="btn btn-default btn-lg btn-pill btn-borderless" href="javascript:void(0);"
+                        onclick="openForm()"><span class="icon icon-mail"></span>Contact Us</a>
+
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Contact Form Modal -->
+    <div id="contact-form-modal">
+        <div class="contact-form-container">
+            <span class="close-button" onclick="closeForm()">&times;</span>
+            <h2>Contact Us</h2>
+            <form id="contact-form" action="contact-form.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" required></textarea><br>
+
+                <button type="submit">Send</button>
+                <button type="button" onclick="closeForm()">Close</button>
+            </form>
         </div>
     </div>
 
@@ -251,6 +280,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="assets/js/toolkit.min.js"></script>
     <script src="assets/js/application-custom.js"></script>
+    <script>
+        function openForm() {
+            document.getElementById('contact-form-modal').style.display = 'block';
+        }
+
+        function closeForm() {
+            document.getElementById('contact-form-modal').style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>

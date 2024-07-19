@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Please reach out to Trafton Reynolds II with any questions. reynoldstrafton@gmail.com -->
 
 <head>
     <meta charset="utf-8">
@@ -29,34 +30,9 @@
     <script src="https://use.typekit.net/urq6kvn.js"></script>
     <script>try { Typekit.load({ async: true }); } catch (e) { }</script>
 
-    <!-- contact form css, was being weird when not in html file -->
-    <!-- <style>
-        #contact-form-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            align-items: center;
-            z-index: 1000;
-        }
+    <!-- Include Toast CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 
-        .contact-form-container {
-            background: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 8px;
-            width: 80%;
-            max-width: 600px;
-            position: relative;
-        }
-
-        .contact-form-container h2 {
-            margin-top: 0;
-        }
-    </style> -->
 
 </head>
 
@@ -309,6 +285,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="assets/js/toolkit.min.js"></script>
     <script src="assets/js/application-custom.js"></script>
+    <!-- Include Toastr JS script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         function openForm() {
             document.getElementById('contact-form-modal').style.display = 'block';
@@ -317,6 +295,30 @@
         function closeForm() {
             document.getElementById('contact-form-modal').style.display = 'none';
         }
+
+        $(document).ready(function () {
+            $('#contact-form').on('submit', function (e) {
+                e.preventDefault(); // Prevent the default form submission
+
+                $.ajax({
+                    url: 'contact-form.php',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.status === 'success') {
+                            toastr.success(response.message);
+                            closeForm();
+                        } else {
+                            toastr.error(response.message);
+                        }
+                    },
+                    error: function () {
+                        toastr.error('An error occurred. Please try again.');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 
